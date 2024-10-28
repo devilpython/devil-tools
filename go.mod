@@ -1,4 +1,4 @@
-module devil-tools
+module github.com/devilpython/devil-tools
 
 go 1.22.5
 
