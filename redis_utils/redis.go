@@ -1,10 +1,11 @@
 package redis_utils
 
 import (
-	"github.com/garyburd/redigo/redis"
 	"log"
 	"strconv"
-	"devil-tools/config"
+
+	"github.com/devilpython/devil-tools/config"
+	"github.com/garyburd/redigo/redis"
 )
 
 func NewRedisInstance() redis.Conn {
@@ -21,7 +22,7 @@ func NewRedisInstance() redis.Conn {
 	return nil
 }
 
-//获得redis连接
+// 获得redis连接
 func getRedisConnection() (redis.Conn, error) {
 	conf, _ := config.GetConfigInstance()
 	server := conf.RedisServer + ":" + strconv.Itoa(int(conf.RedisPort))

@@ -1,19 +1,20 @@
 package middle_ware
 
 import (
-	"devil-tools/utils"
+	"io"
+
+	"github.com/devilpython/devil-tools/utils"
 	"github.com/gin-gonic/gin"
-	"io/ioutil"
 )
 
 var KeyPostData = 0
 
-//数据绑定中间件
+// 数据绑定中间件
 func PostDataBinding() gin.HandlerFunc {
 	return func(context *gin.Context) {
 		//防止数据溢出
 		defer utils.RemoveAllGlobalData()
-		data, _ := ioutil.ReadAll(context.Request.Body)
+		data, _ := io.ReadAll(context.Request.Body)
 		param := make(map[string]interface{})
 		paramObj, _ := utils.BindingData(string(data), param)
 		dataMap, ok := paramObj.(map[string]interface{})

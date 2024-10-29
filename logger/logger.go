@@ -1,12 +1,13 @@
 package logger
 
 import (
-	"devil-tools/config"
-	"devil-tools/goroutine_local"
 	"fmt"
 	"os"
 	"sync"
 	"time"
+
+	"github.com/devilpython/devil-tools/config"
+	"github.com/devilpython/devil-tools/goroutine_local"
 
 	rotatelogs "github.com/lestrrat/go-file-rotatelogs"
 	"github.com/rifflock/lfshook"

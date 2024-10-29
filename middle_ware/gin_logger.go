@@ -1,16 +1,17 @@
 package middle_ware
 
 import (
-	logger2 "devil-tools/logger"
-	"devil-tools/utils"
-	"github.com/gin-gonic/gin"
 	"time"
-	"devil-tools/goroutine_local"
+
+	"github.com/devilpython/devil-tools/goroutine_local"
+	"github.com/devilpython/devil-tools/logger"
+	"github.com/devilpython/devil-tools/utils"
+	"github.com/gin-gonic/gin"
 )
 
-//gin的日志中间件
+// gin的日志中间件
 func GinLogger() gin.HandlerFunc {
-	logger := logger2.GetLoggerInstance()
+	logger1 := logger.GetLoggerInstance()
 	return func(c *gin.Context) {
 		//防止数据溢出
 		defer utils.RemoveAllGlobalData()
@@ -26,7 +27,7 @@ func GinLogger() gin.HandlerFunc {
 		clientIP := c.ClientIP()
 		method := c.Request.Method
 		statusCode := c.Writer.Status()
-		logger.Infof(" GOROUTINE_ID[%d] | %3d | %13v | %15s | %s  %s |",
+		logger1.Infof(" GOROUTINE_ID[%d] | %3d | %13v | %15s | %s  %s |",
 			goroutine_local.GetGoroutineID(),
 			statusCode,
 			latency,

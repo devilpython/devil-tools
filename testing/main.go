@@ -1,8 +1,9 @@
 package main
 
 import (
-	"devil-tools/utils"
 	"fmt"
+
+	"github.com/devilpython/devil-tools/utils"
 )
 
 func main() {
@@ -13,7 +14,6 @@ func main() {
 		flag = 0
 	}
 	fmt.Printf("......value: %d\r\n", flag)
-
 
 	//interfaces, err :=  net.Interfaces()
 	//if err != nil {
@@ -42,6 +42,5 @@ func main() {
 	//if successful {
 	//	fmt.Println(r)
 	//}
-
 
 }
